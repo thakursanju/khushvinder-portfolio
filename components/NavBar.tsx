@@ -20,6 +20,15 @@ const links: NavLink[] = [
   { href: '#built', label: 'Built & Led', index: '04.' },
 ];
 
+const socials = [
+  { label: '{github}', href: 'https://github.com/thakursanju' },
+  { label: '{linkedin}', href: 'https://www.linkedin.com/in/khushvinder-thakur-404a70323/' },
+  { label: '{codeforces}', href: 'https://codeforces.com/profile/thakursanju' },
+  { label: '{leetcode}', href: 'https://leetcode.com/u/thakursanju/' },
+  { label: '{email}', href: 'mailto:khushvinder057@gmail.com' },
+  { label: '{resume}', href: '/Khushvinder-Thakur-Resume.pdf' },
+];
+
 export default function NavBar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -42,13 +51,28 @@ export default function NavBar() {
       }`}
     >
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <a
-          href="#"
-          className="font-script text-2xl text-ink-900 leading-none"
-          aria-label="Khushvinder Thakur home"
-        >
-          Khushvinder Thakur
-        </a>
+        <div className="flex flex-col gap-1.5">
+          <a
+            href="#"
+            className="font-script text-2xl text-ink-900 leading-none"
+            aria-label="Khushvinder Thakur home"
+          >
+            Khushvinder Thakur
+          </a>
+          <div className="hidden sm:flex items-center gap-3">
+            {socials.map((s) => (
+              <a
+                key={s.label}
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono text-[10px] text-ink-900/60 hover:text-accent-coral transition-colors"
+              >
+                {s.label}
+              </a>
+            ))}
+          </div>
+        </div>
 
         <ul className="hidden sm:flex items-center gap-8">
           {links.map((link) => (
@@ -109,6 +133,20 @@ export default function NavBar() {
               </li>
             ))}
           </ul>
+          <div className="flex flex-wrap gap-x-4 gap-y-2 px-6 pb-4">
+            {socials.map((s) => (
+              <a
+                key={s.label}
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={closeMenu}
+                className="font-mono text-xs text-ink-900/60 hover:text-accent-coral transition-colors"
+              >
+                {s.label}
+              </a>
+            ))}
+          </div>
         </div>
       )}
     </header>

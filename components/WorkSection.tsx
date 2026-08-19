@@ -60,7 +60,10 @@ const caseFiles: CaseFile[] = [
       '60% faster loads through Room Database caching.',
     ],
     stack: ['Kotlin', 'Spring Boot', 'Jetpack Compose', 'Firebase', 'PostgreSQL', 'Docker'],
-    links: [{ label: 'GitHub', href: 'https://github.com/thakursanju' }],
+    links: [
+      { label: 'Android', href: 'https://github.com/thakursanju/NewsFlow-AI' },
+      { label: 'Backend', href: 'https://github.com/thakursanju/NewsFlow-Backend' }
+    ],
   },
   {
     name: 'ResuMatch-AI',
@@ -80,7 +83,7 @@ const caseFiles: CaseFile[] = [
       'Sub-2-second real-time similarity scoring at 95%+ extraction accuracy.',
     ],
     stack: ['Python', 'spaCy', 'scikit-learn', 'Streamlit Cloud'],
-    links: [{ label: 'GitHub', href: 'https://github.com/thakursanju' }],
+    links: [{ label: 'GitHub', href: 'https://github.com/thakursanju/resumeMatchAI' }],
   },
   {
     name: 'CODEARENA',

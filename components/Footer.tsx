@@ -6,7 +6,7 @@
 const socials = [
   { label: '{github}', href: 'https://github.com/thakursanju' },
   { label: '{linkedin}', href: 'https://www.linkedin.com/in/khushvinder-thakur-404a70323/' },
-  { label: '{codeforces}', href: 'https://codeforces.com/blog/entry/139079' },
+  { label: '{codeforces}', href: 'https://codeforces.com/profile/thakursanju' },
   { label: '{leetcode}', href: 'https://leetcode.com/u/thakursanju/' },
   { label: '{email}', href: 'mailto:khushvinder057@gmail.com' },
   { label: '{resume}', href: '/Khushvinder-Thakur-Resume.pdf' },
