@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Site-wide base styles.
+ * The cream background + dot-grid pattern is what gives the page its
+ * "engineering notebook / scrapbook" feel — every section sits on top of this.
+ */
+:root {
+  --grid-size: 22px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-cream-100 text-ink-900 font-sans antialiased;
+  background-image: theme('backgroundImage.dot-grid');
+  background-size: var(--grid-size) var(--grid-size);
+  background-position: 0 0;
+}
+
+/* Reusable utilities used by multiple components. */
+@layer utilities {
+  /* "Torn paper" silhouette — uneven edges via a hand-tuned polygon clip.
+   * Cheaper than masking with a PNG and resolution-independent. */
+  .torn-paper {
+    clip-path: polygon(
+      2% 6%, 12% 2%, 28% 7%, 41% 1%, 58% 5%, 73% 0%,
+      88% 6%, 98% 3%, 96% 18%, 100% 34%, 97% 52%, 99% 70%,
+      96% 88%, 98% 98%, 82% 95%, 64% 99%, 47% 94%, 30% 99%,
+      14% 95%, 2% 98%, 5% 82%, 0% 64%, 4% 46%, 1% 28%
+    );
+  }
+
+  /* Security-paper stripe texture for a ticket stub — an irregular repeating
+   * pattern of cream bars on the coral fill, tiled top-to-bottom so a stub
+   * of any height (e.g. a card expanded taller) reads as "more barcode"
+   * instead of a blank stretch of solid color. */
+  .barcode-fill {
+    background-image: repeating-linear-gradient(
+      to bottom,
+      rgba(250, 247, 242, 0.25) 0px, rgba(250, 247, 242, 0.25) 2px,
+      transparent 2px, transparent 5px,
+      rgba(250, 247, 242, 0.15) 5px, rgba(250, 247, 242, 0.15) 6px,
+      transparent 6px, transparent 11px,
+      rgba(250, 247, 242, 0.25) 11px, rgba(250, 247, 242, 0.25) 14px,
+      transparent 14px, transparent 17px,
+      rgba(250, 247, 242, 0.1) 17px, rgba(250, 247, 242, 0.1) 18px,
+      transparent 18px, transparent 26px,
+      rgba(250, 247, 242, 0.2) 26px, rgba(250, 247, 242, 0.2) 28px,
+      transparent 28px, transparent 34px,
+      rgba(250, 247, 242, 0.15) 34px, rgba(250, 247, 242, 0.15) 35px,
+      transparent 35px, transparent 44px
+    );
+  }
+
+  /* Perforated ticket edge — two repeating radial gradients punch
+   * semicircular notches into the left and right edges. */
+  .ticket-edge {
+    -webkit-mask-image:
+      radial-gradient(circle at 0 50%, transparent 8px, black 9px),
+      radial-gradient(circle at 100% 50%, transparent 8px, black 9px);
+    -webkit-mask-composite: source-in;
+            mask-composite: intersect;
+  }
+
+  /* Hero backdrop: cream base + two soft accent glows (warm yellow up top
+   * behind the name, cool sky lower-right) + the graph-paper dot grid over
+   * everything. Gives the section depth so it doesn't read as a flat fill. */
+  .notebook-bg {
+    background-color: theme('colors.cream.50');
+    background-image:
+      radial-gradient(60% 50% at 50% 18%, rgba(255, 224, 102, 0.18), transparent 70%),
+      radial-gradient(55% 55% at 88% 82%, rgba(189, 224, 240, 0.16), transparent 70%),
+      theme('backgroundImage.dot-grid');
+    background-size:
+      100% 100%,
+      100% 100%,
+      var(--grid-size) var(--grid-size);
+    background-repeat: no-repeat, no-repeat, repeat;
+    background-position: center, center, 0 0;
+  }
+
+  /* Subtle paper texture overlay using layered noise-like gradients.
+   * Keeps the cream surface from looking too flat. */
+  .paper-texture {
+    background-image:
+      radial-gradient(rgba(0,0,0,0.025) 1px, transparent 1px),
+      radial-gradient(rgba(0,0,0,0.02) 1px, transparent 1px);
+    background-size: 5px 5px, 11px 11px;
+    background-position: 0 0, 2px 3px;
+  }
+}
