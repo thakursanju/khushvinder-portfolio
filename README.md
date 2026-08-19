@@ -1,6 +1,7 @@
 # Personal portfolio
 GODS PLAN 
-Things used my me in down there check out and do not forget to use claude or something for design 
+Things used my me in down there check out and do not forget to use claude or something for design and some time SHIT HAPPENS
+
 ## Stack
 
 - Next.js 14 (App Router) + React 18
