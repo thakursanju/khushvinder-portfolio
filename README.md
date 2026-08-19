@@ -1,7 +1,6 @@
 # Personal portfolio
-
-A single-page Next.js 14 (App Router) portfolio with a scrapbook / engineering-notebook aesthetic. Built with Tailwind, Framer Motion, and Recharts.
-
+GODS PLAN 
+Thing used my me in down there check out and do not forget to use claude or something for design 
 ## Stack
 
 - Next.js 14 (App Router) + React 18
